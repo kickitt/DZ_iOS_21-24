@@ -64,7 +64,7 @@ class TwentyTwoCell: UITableViewCell {
         userNameLabel.snp.makeConstraints { maker in
             maker.top.equalToSuperview().inset(10).labeled("NAME LABEL TOP")
             maker.left.equalTo(userImage.snp.right).offset(10).labeled("NAME LABEL LEFT")
-            maker.right.equalTo(date.snp.left).offset(10).labeled("NAME LABEL RIGHT")
+            maker.right.lessThanOrEqualTo(date.snp.left).offset(10).labeled("NAME LABEL RIGHT")
         }
         
         date.snp.makeConstraints { maker in

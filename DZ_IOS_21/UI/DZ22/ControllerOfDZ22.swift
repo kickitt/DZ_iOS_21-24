@@ -17,7 +17,7 @@ class ControllerOfDZ22: BaseViewController, UITableViewDataSource, UITableViewDe
         super.setupController()
         
         self.title = "Comments"
-        self.tabBarItem = UITabBarItem(title: "DZ21", image: UIImage(), tag: 1)
+        self.tabBarItem = UITabBarItem(title: "DZ22", image: UIImage(), tag: 1)
 
     }
 
