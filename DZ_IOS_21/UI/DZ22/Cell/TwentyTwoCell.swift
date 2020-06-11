@@ -16,7 +16,6 @@ class TwentyTwoCell: UITableViewCell {
     let commentLablel = UILabel()
     
     var model: DZ22CommentModel? {
-        
         didSet {
             if let path = model?.userImage {
                 userImage.sd_setImage(with: URL(string: path))
@@ -43,7 +42,6 @@ class TwentyTwoCell: UITableViewCell {
         commentLablel.numberOfLines = 0
         userImage.contentMode = .scaleAspectFit
         userImage.clipsToBounds = true
-        
         userNameLabel.backgroundColor = .yellow
         date.backgroundColor = .gray
         commentLablel.backgroundColor = .green

@@ -23,7 +23,6 @@ class ControllerOfDZ24: BaseViewController, UITableViewDataSource, UITableViewDe
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonPressed))
         tableView.delegate = self
         tableView.dataSource = self
-        //tableView.isEditing = true
         tableView.register(TwentyFourCell.self, forCellReuseIdentifier: "TwentyFourCell")
         self.view.addSubview(tableView)
         tableView.snp.makeConstraints { maker in
@@ -46,6 +45,7 @@ class ControllerOfDZ24: BaseViewController, UITableViewDataSource, UITableViewDe
     }
     
     //MARK: - UITableViewDataSource
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return dataSource.count
     }
@@ -59,7 +59,6 @@ class ControllerOfDZ24: BaseViewController, UITableViewDataSource, UITableViewDe
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         let cell = tableView.dequeueReusableCell(withIdentifier: "TwentyFourCell", for: indexPath)
         cell.textLabel?.text = dataSource[indexPath.section][indexPath.row]
         return cell

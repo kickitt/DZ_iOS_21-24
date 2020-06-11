@@ -29,23 +29,17 @@ class HeaderView: UIView {
     }
     
     private func setup() {
-        
         self.backgroundColor = .blue
-        
         image.contentMode = .scaleAspectFit
         image.clipsToBounds = true
-        
         label.numberOfLines = 0
         label.backgroundColor = .green
-        
         self.addSubview(image)
         self.addSubview(label)
-        
         makingConstraints()
     }
     
     func makingConstraints()  {
-        
         image.snp.makeConstraints({ maker in
             maker.height.equalTo(100).priority(.required).labeled(" IMAGE     HEIGHT ")
             maker.width.equalTo(80).labeled(" IMAGE     WIDTH ")

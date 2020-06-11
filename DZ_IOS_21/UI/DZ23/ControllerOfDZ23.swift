@@ -48,13 +48,13 @@ class ControllerOfDZ23: BaseViewController, UITableViewDataSource, UITableViewDe
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         let cell = tableView.dequeueReusableCell(withIdentifier: "TwentyThreeCell", for: indexPath)
         cell.textLabel?.text = dataSource[indexPath.row]
         return cell
     }
     
     //MARK: - Move cells
+    
     func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
         return .none
     }
@@ -68,7 +68,6 @@ class ControllerOfDZ23: BaseViewController, UITableViewDataSource, UITableViewDe
     }
     
     func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-        
         let model = dataSource[sourceIndexPath.row]
         dataSource.remove(at: sourceIndexPath.row)
         dataSource.insert(model, at: destinationIndexPath.row)
@@ -85,6 +84,4 @@ class ControllerOfDZ23: BaseViewController, UITableViewDataSource, UITableViewDe
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
     }
-    
-    
 }

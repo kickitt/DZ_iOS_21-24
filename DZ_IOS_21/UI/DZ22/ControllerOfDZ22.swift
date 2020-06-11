@@ -15,10 +15,8 @@ class ControllerOfDZ22: BaseViewController, UITableViewDataSource, UITableViewDe
     
     override func setupController() {
         super.setupController()
-        
         self.title = "Comments"
         self.tabBarItem = UITabBarItem(title: "DZ22", image: UIImage(), tag: 1)
-
     }
 
     override func viewDidLoad() {
@@ -27,8 +25,6 @@ class ControllerOfDZ22: BaseViewController, UITableViewDataSource, UITableViewDe
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(TwentyTwoCell.self, forCellReuseIdentifier: "TwentyTwoCell")
-        
-        
         tableView.snp.makeConstraints { maker in
             maker.edges.equalTo(self.view).inset(0)
         }
@@ -41,7 +37,6 @@ class ControllerOfDZ22: BaseViewController, UITableViewDataSource, UITableViewDe
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         let model = dataSource[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "TwentyTwoCell", for: indexPath)
         if let cell = cell as? TwentyTwoCell {
@@ -53,8 +48,6 @@ class ControllerOfDZ22: BaseViewController, UITableViewDataSource, UITableViewDe
     //MARK: - UITableViewDelegate
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
         tableView.deselectRow(at: indexPath, animated: true)
-        
     }
 }

@@ -28,22 +28,17 @@ class FooterView: UIView {
     }
     
     private func setup() {
-        
         self.backgroundColor = .yellow
-        
         label1.numberOfLines = 0
         label1.backgroundColor = .green
-        
         label2.numberOfLines = 0
         label2.backgroundColor = .red
-        
         self.addSubview(label1)
         self.addSubview(label2)
         makingConstraints()
     }
     
     func makingConstraints() {
-        
         label1.snp.makeConstraints({ maker in
             maker.top.equalToSuperview().inset(10)
             maker.left.equalToSuperview().inset(20).labeled("label1 left constraint")

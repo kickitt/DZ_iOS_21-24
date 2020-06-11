@@ -23,11 +23,9 @@ class ControllerOfDZ21: BaseViewController, UITableViewDataSource, UITableViewDe
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(OneCell.self, forCellReuseIdentifier: "Cell_id")
-        
         self.view.addSubview(tableView)
         tableView.snp.makeConstraints { maker in
             maker.edges.equalToSuperview()
@@ -49,7 +47,6 @@ class ControllerOfDZ21: BaseViewController, UITableViewDataSource, UITableViewDe
     
     //MARK: - Resize header \ footer view
     private func resizeHeaderFooterView(for size: CGSize) {
-        
         // resize header view
         let headerSize = header.systemLayoutSizeFitting(CGSize(width: size.width, height: 0), withHorizontalFittingPriority: UILayoutPriority.required, verticalFittingPriority: UILayoutPriority.fittingSizeLevel)
         
@@ -68,7 +65,6 @@ class ControllerOfDZ21: BaseViewController, UITableViewDataSource, UITableViewDe
         
         header.makingConstraints()
         footer.makingConstraints()
-        
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
@@ -82,7 +78,6 @@ class ControllerOfDZ21: BaseViewController, UITableViewDataSource, UITableViewDe
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
         let familyNames = UIFont.familyNames
         let familyName = familyNames[section]
         let fontNames = UIFont.fontNames(forFamilyName: familyName)
@@ -90,33 +85,27 @@ class ControllerOfDZ21: BaseViewController, UITableViewDataSource, UITableViewDe
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        
         let familyNames = UIFont.familyNames
         let familyName = familyNames[section]
         return familyName
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         let familyNames = UIFont.familyNames
         let familyName = familyNames[indexPath.section]
         let fontNames = UIFont.fontNames(forFamilyName: familyName)
         let fontName = fontNames[indexPath.row]
-        
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell_id", for: indexPath)
         cell.textLabel?.text = "\(fontName)"
         let font = UIFont(name: fontName, size: 16)
         cell.textLabel?.font = font
-        
         return cell
     }
     
     //MARK: - UITableViewDelegate
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
         tableView.deselectRow(at: indexPath, animated: true)
-        
     }
     
 }
