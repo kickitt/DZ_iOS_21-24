@@ -33,15 +33,15 @@ class ControllerOfDZ24: BaseViewController, UITableViewDataSource, UITableViewDe
     //MARK: - Actions
     
     @objc func addButtonPressed() {
-        var i = 2
-        let index = 0
-        let insertIndex = index <= dataSource[0].count ? index : dataSource[0].count
-        while i != 0 {
-            dataSource[0].insert(String(Int.random(in: 0...100)), at: insertIndex)
-            let indexPath = IndexPath(row: insertIndex, section: 0)
-            tableView.insertRows(at: [indexPath], with: .automatic)
-            i -= 1
+        let rowCount = 5
+        var index = 0
+        var indexPathes = [IndexPath]()
+        while index < rowCount {
+            dataSource[0].insert(String(Int.random(in: 0...100)), at: index)
+            indexPathes.append(IndexPath(row: index, section: 0))
+            index += 1
         }
+        tableView.insertRows(at: indexPathes, with: .automatic)
     }
     
     //MARK: - UITableViewDataSource
